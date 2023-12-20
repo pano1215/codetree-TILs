@@ -14,14 +14,11 @@ for k in range(50) :
             for rr in range(n) :
                 for cc in range(n) :
                     if arr[rr][cc] == 1 and abs(row - rr) + abs(column - cc) <= k :
-                        #print(row, column, rr, cc, abs(row - rr) + abs(column - cc), k)
                         gold += m 
                         gold_num += 1
-                        #print(gold)
-            #print('==================')
+                    
             mining = (k * k) + ((k + 1) * (k + 1))
             profit = gold - mining
-            #print('gold : ', gold, 'mining : ', mining, 'profit : ', profit)
             if profit >= 0 :
                 max_num = max(max_num, gold_num)
 

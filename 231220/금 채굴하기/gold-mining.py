@@ -22,7 +22,7 @@ for k in range(50) :
             mining = (k * k) + ((k + 1) * (k + 1))
             profit = gold - mining
             #print('gold : ', gold, 'mining : ', mining, 'profit : ', profit)
-            if profit > 0 :
+            if profit >= 0 :
                 max_num = max(max_num, gold_num)
 
 print(max_num)

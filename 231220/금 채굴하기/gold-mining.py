@@ -1,9 +1,7 @@
-import sys
-
 n, m = map(int, input().split())
 arr = [list(map(int, input().split())) for _ in range(n)]
 
-max_num = -sys.maxsize
+max_num = 0
         
 for k in range(50) :
     if k > n :

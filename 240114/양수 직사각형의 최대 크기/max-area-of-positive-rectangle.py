@@ -23,9 +23,10 @@ def count(row, col, wid, hei) :
 result = -1 
 for row in range(n) :
     for col in range(m) :
-        for wid in range(1, n + 1) :
-            for hei in range(1, m + 1) :
+        for wid in range(1, m + 1) :
+            for hei in range(1, n + 1) :
                 if check(row, col, wid, hei) :
+                    #print(row, col, wid, hei)
                     result = max(result, count(row, col, wid, hei))
 
 print(result)

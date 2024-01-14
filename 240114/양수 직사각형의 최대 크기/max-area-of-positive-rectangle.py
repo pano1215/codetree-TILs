@@ -9,7 +9,7 @@ def check(row, col, wid, hei) :
         for j in range(col, col + wid) :
             if not is_range(i, j) :
                 return False
-            if arr[i][j] < 0 :
+            if arr[i][j] <= 0 :
                 return False
     return True
 

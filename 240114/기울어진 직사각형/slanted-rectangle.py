@@ -6,12 +6,13 @@ import sys
 
 n = int(input())
 arr = [list(map(int, input().split())) for _ in range(n)]
-dxs, dys = [-1, -1, 1, 1], [1, -1, -1, 1]
+
 
 def is_range(x, y) :
     return 0 <= x and x < n and 0 <= y and y < n
 
 max_num = -sys.maxsize
+
 for row in range(n) : 
     for column in range(n) :
         # route_sum = 0
@@ -22,6 +23,7 @@ for row in range(n) :
         for upper in range(1, n) : # 가로길이
             for height in range(1, n) : # 세로길이
                 move_nums = [upper, height, upper, height]
+                dxs, dys = [-1, -1, 1, 1], [1, -1, -1, 1]
                 temp_x = 0 
 
                 for dx, dy, move_num in zip(dxs, dys, move_nums):

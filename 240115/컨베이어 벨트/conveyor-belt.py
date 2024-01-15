@@ -6,7 +6,7 @@ arr = up_arr + down_arr
 def Print(arr) :
     for i in range(1, len(arr) + 1) :
         print(arr[i - 1], end = ' ')
-        if (i > 0 and i % 3 == 0) :
+        if (i > 0 and i % n == 0) :
             print()
 
 def turn() :

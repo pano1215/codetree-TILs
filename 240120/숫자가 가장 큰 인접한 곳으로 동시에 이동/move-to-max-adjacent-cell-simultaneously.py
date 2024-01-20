@@ -9,7 +9,7 @@ dxs = [-1, 1, 0, 0]
 dys = [0, 0, -1, 1]
 
 count = [[0 for _ in range(n)] for _ in range(n)] 
-next_count = [[0 for _ in range(n)] for _ in range(n)] 
+#next_count = [[0 for _ in range(n)] for _ in range(n)] 
 
 # 배열 범위 체크 함수
 def is_in_range(x, y):
@@ -66,6 +66,7 @@ def Check_one(count) :
 count = Record(count)
 
 for tt in range(t) :
+    next_count = [[0 for _ in range(n)] for _ in range(n)] 
     for row in range(n) :
         for col in range(n) :
             if count[row][col] != 0 :

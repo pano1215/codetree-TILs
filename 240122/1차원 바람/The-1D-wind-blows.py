@@ -6,13 +6,7 @@ wind = [list(map(str, input().split())) for _ in range(q)]
 def row_in_range(x):
     return 0 <= x < n 
 
-# 배열 범위 체크 함수 row - 1
-def row_mius_in_range(x):
-    return 0 <= x < n 
-
 def Up_check(row, arr) :
-    #global row
-
     check = False
     for j in range(m) :
         if row_in_range(row - 1) and arr[row - 1][j] == arr[row][j] :
@@ -21,22 +15,12 @@ def Up_check(row, arr) :
     return check
 
 def Down_check(row, arr) :
-    #global row 
-
     check = False
     for j in range(m) :
         if row_in_range(row + 1) and arr[row + 1][j] == arr[row][j] :
             check = True
     row = row + 1
     return check
-
-# def Left_move(row) :
-#     last_temp = arr[row][-1] 
-    
-#     for i in range(m - 1, 0, -1) :
-#         arr[row][i] = arr[row][i - 1]
-#     arr[row][0] = last_temp
-#     return arr
 
 def Move(row, dirt) :
     if dirt == 'L' :
@@ -53,13 +37,6 @@ def Move(row, dirt) :
         arr[row][-1] = first_temp
         dirt = 'L'
     return arr, dirt
-
-# def Right_move(row) :
-#     first_temp = arr[row][0] 
-#     for i in range(1, m) :
-#         arr[row][i] = arr[row][i + 1]
-#     arr[row][-1] = first_temp
-#     return arr
 
 row = 0
 for i in range(q) :

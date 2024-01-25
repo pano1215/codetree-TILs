@@ -17,7 +17,7 @@ def Load_block(check, row, block_leng) :
 
     for col in range(block_leng, m + 1) : 
         arr[row][col] = 1
-        #print(block_leng, block_leng + m + 1)
+        #print(block_leng, m + 1 )
     return arr
 
 # 밑에 블록이 있는지 체크하는 함수

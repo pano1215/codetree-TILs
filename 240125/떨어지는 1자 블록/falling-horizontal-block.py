@@ -15,7 +15,7 @@ def Load_block(check, row, block_leng) :
     if m == 1 :
         m = 0
 
-    for col in range(block_leng, block_leng + m + 1) : 
+    for col in range(block_leng, m + 1) : 
         arr[row][col] = 1
         #print(block_leng, block_leng + m + 1)
     return arr

@@ -11,13 +11,9 @@ def is_in_range(x) :
 # 1이 있는 지점의 위에 블록을 채움
 # return된 row와 block_leng 바로 위부터 k만큼 1로 변경
 def Load_block(check, row, block_leng) :
-    global m
-    if m == 1 :
-        m = 0
-
-    for col in range(block_leng, m + 1) : 
-        arr[row][col] = 1
-        #print(block_leng, m + 1 )
+    for cnt in range(m) : # 블록길이만큼 반복
+        arr[row][block_leng + cnt] = 1
+        #print(block_leng, cnt, block_leng + cnt - 1)
     return arr
 
 # 밑에 블록이 있는지 체크하는 함수

@@ -5,6 +5,9 @@ arr = [list(map(int, input().split())) for _ in range(n)]
 # 선언
 k = k - 1
 
+def is_in_range(x) :
+    return 0 <= x < n 
+
 # 1이 있는 지점의 위에 블록을 채움
 # return된 row와 block_leng 바로 위부터 k만큼 1로 변경
 def Load_block(check, row, block_leng) :
@@ -23,7 +26,7 @@ def Check_block() :
     check = True
     for row in range(n) :
         for block_leng in range(k, k + m) :
-            if arr[row + 1][block_leng] == 0 :
+            if is_in_range(row + 1) and arr[row + 1][block_leng] == 0 :
                 check = True
             else :
                 check = False

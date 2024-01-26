@@ -20,9 +20,7 @@ def Exchange(max_num, num) :
     temp = arr[max_row][max_col]
     arr[max_row][max_col] = arr[row][col]
     arr[row][col] = temp
-
     return arr
-
 
 # 8방향 중 최대값 찾기 
 def Search_dirt(row, col) :

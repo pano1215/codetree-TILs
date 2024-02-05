@@ -4,7 +4,7 @@ arr = [int(input()) for _ in range(n)]
 # m이상으로 연속하는 폭탄이 있는지 체크
 def Same_check(start_idx, curr_num) :
     for i in range(start_idx + 1, len(arr)) :
-        if arr[start_idx] != curr_num  :
+        if arr[i] != curr_num  :
             return i - 1
     return len(arr) - 1
 

@@ -20,19 +20,19 @@ def move_and_block_check(x, y, dirt) :
     go_x = x + dx[dirt]
     go_y = y + dy[dirt]
     if is_in_range(go_x, go_y) and miro[go_x][go_y] == '#' :
-        #print('전진할 곳에 벽 있음')
+        print('전진할 곳에 벽 있음')
 
         # 반시계 방향 설정
         dirt = (dirt + 3) % 4
-        #print('반시계 방향 설정 : ', dirt)
+        print('반시계 방향 설정 : ', dirt, go_x, go_y)
 
         # 이동을 하지 않기 때문에 원래 위치 리턴, 바뀐 방향 리턴
         return dirt, x, y
             
     elif is_in_range(go_x, go_y) and miro[go_x][go_y] == '.' :
-        #print('전진할 곳에 벽 없음')
+        print('전진할 곳에 벽 없음')
         cur_point = miro[go_x][go_y]
-        #print('전진할 곳으로 전진함 : ', go_x, go_y)
+        print('전진할 곳으로 전진함 : ', go_x, go_y)
         # 이동하기 때문에 이동할 위치 리턴, 원래 방향 리턴
         return dirt, go_x, go_y
     elif not is_in_range(go_x, go_y) : # 격자에서 벗어나는 경우
@@ -50,18 +50,24 @@ def right_wall_check(x, y, dirt) :
     right_y = y + dy[right_dirt] 
 
     if is_in_range(right_x, right_y) and miro[right_x][right_y] == '#' :
-        #print('오른쪽에 벽 있음')
-        #print('move_and_block_check 실행')
+        print('오른쪽에 벽 있음')
+        print('move_and_block_check 실행')
         dirt, go_x, go_y = move_and_block_check(x, y, dirt)
 
+        if x == go_x and y == go_y : 
+            dirt, go_x, go_y = move_and_block_check(x, y, dirt)
+
     elif is_in_range(right_x, right_y) and miro[right_x][right_y] == '.' :
-        #print('오른쪽에 벽 없음')
+        print('오른쪽에 벽 없음')
 
         # 시계방향으로 90도 회전함
         dirt = (dirt + 1) % 4
 
-        #print('move_and_block_check 실행')
+        print('move_and_block_check 실행')
         dirt, go_x, go_y = move_and_block_check(x, y, dirt)
+
+        if x == go_x and y == go_y : 
+            dirt, go_x, go_y = move_and_block_check(x, y, dirt)
 
     else : # 격자를 벗어나는 경우
         return dirt, go_x, go_y 
@@ -69,6 +75,7 @@ def right_wall_check(x, y, dirt) :
     return dirt, go_x, go_y 
 
 cnt = 0
+
 # 방문한 곳 저장 
 visited = []
 while True :
@@ -83,9 +90,6 @@ while True :
         break
     
     visited.append([x, y])
-    # if cnt > 1000 :
-    #     cnt = -1
-    #     break
 
 print(cnt)
 #print('dirt, x, y, cnt : ', dirt, x, y, cnt)

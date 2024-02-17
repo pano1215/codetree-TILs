@@ -16,12 +16,18 @@ def is_in_range(right_x, right_y) :
 
 # 회전을 여러 번 할 경우 - 위치 체크 함수
 def same_diff_dirt_check(x, go_x, y, go_y, dirt) :
+    temp_visited = []
     while True :
         if x == go_x and y == go_y : 
             dirt, go_x, go_y = move_and_block_check(x, y, dirt)
             
         if x != go_x or y != go_y : 
             return dirt, go_x, go_y
+        
+        if [go_x, go_y, dirt] in temp_visited :
+            return dirt, go_x, go_y
+    
+        temp_visited.append([x, y, dirt])
 
 # 이동할 위치에 따라 방향 설정 & 이동
 def move_and_block_check(x, y, dirt) :
@@ -71,6 +77,7 @@ def right_wall_check(x, y, dirt) :
         # 시계방향으로 90도 회전함
         dirt = (dirt + 1) % 4
 
+
         #print('move_and_block_check 실행')
         dirt, go_x, go_y = move_and_block_check(x, y, dirt)
 
@@ -100,66 +107,3 @@ while True :
 
 print(cnt)
 #print('dirt, x, y, cnt : ', dirt, x, y, cnt)
-
-###############################################
-# ccw_dx = [0, -1, 0, 1]
-# ccw_dy = [1, 0, -1, 0]
-# ccw_dirt = 0
-
-# ccw_r_dx = [1, 0, -1, 0]
-# ccw_r_dy = [0, 1, 0, -1]
-# ccw_r_dirt = 0
-
-# dx = [0, 1, 0, -1]
-# dy = [1, 0, -1, 0]
-# dirt = 0
-
-# r_dx = [1, 0, -1, 0]
-# r_dy = [0, -1, 0, 1]
-# r_dirt = 0
-
-# def is_in_range(temp_x, temp_y) :
-#     return 0 <= x < n and 0 <= y < n
-
-# def right_wall_check(temp_x, temp_y) : # 오른쪽에 벽이 있는지 체크
-#     global r_dirt
-
-#     print('첫 번째 : ', temp_x, temp_y)
-#     temp_x += ccw_r_dx[ccw_r_dirt]
-#     temp_y += ccw_r_dy[ccw_r_dirt]
-#     print('두 번째 : ', temp_x, temp_y, ccw_r_dirt)
-
-#     if is_in_range(temp_x, temp_y) and miro[temp_x][temp_y] == '#' : 
-#         #print('벽있음')
-#         return True 
-#     else :
-#         print('벽없음')
-#         ccw_r_dy = (ccw_r_dy + 1) % 4
-#         return False
-
-# cnt = 0
-# while True :
-#     if right_wall_check(x, y) : # 벽이 있다면 
-#         # 전진
-#         x += ccw_dx[ccw_dirt]
-#         y += ccw_dy[ccw_dirt]
-#         if is_in_range(x, y) and miro[x][y] == '#' : # 가려는 곳에 또 벽이 있는 경우 
-#             # 위치 원복
-#             x -= ccw_dx[ccw_dirt]
-#             y -= ccw_dy[ccw_dirt]
-#             ccw_dirt = (ccw_dirt + 1) % 4
-#     else :
-#         ccw_dirt = (ccw_dirt + 1) % 4
-#         print('벽없음 dirt : ', ccw_dirt)
-#         x += ccw_dx[ccw_dirt]
-#         y += ccw_dy[ccw_dirt]
-
-    
-#     if not is_in_range(x, y) :
-#         break
-
-#     print(dirt, x, y, miro[x][y])
-
-#     cnt += 1
-    
-# print(cnt)

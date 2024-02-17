@@ -14,6 +14,15 @@ cur_point = miro[x][y]
 def is_in_range(right_x, right_y) :
     return 0 <= right_x < n and 0 <= right_y < n
 
+# 회전을 여러 번 할 경우 - 위치 체크 함수
+def same_diff_dirt_check(x, go_x, y, go_y, dirt) :
+    while True :
+        if x == go_x and y == go_y : 
+            dirt, go_x, go_y = move_and_block_check(x, y, dirt)
+            
+        if x != go_x or y != go_y : 
+            return dirt, go_x, go_y
+
 # 이동할 위치에 따라 방향 설정 & 이동
 def move_and_block_check(x, y, dirt) :
     # 전진할 좌표 설정
@@ -54,12 +63,7 @@ def right_wall_check(x, y, dirt) :
         #print('move_and_block_check 실행')
         dirt, go_x, go_y = move_and_block_check(x, y, dirt)
 
-        while True :
-            if x == go_x and y == go_y : 
-                dirt, go_x, go_y = move_and_block_check(x, y, dirt)
-            
-            if x != go_x or y != go_y : 
-                break
+        dirt, go_x, go_y = same_diff_dirt_check(x, go_x, y, go_y, dirt)
 
     elif is_in_range(right_x, right_y) and miro[right_x][right_y] == '.' :
         #print('오른쪽에 벽 없음')
@@ -70,12 +74,7 @@ def right_wall_check(x, y, dirt) :
         #print('move_and_block_check 실행')
         dirt, go_x, go_y = move_and_block_check(x, y, dirt)
 
-        while True :
-            if x == go_x and y == go_y : 
-                dirt, go_x, go_y = move_and_block_check(x, y, dirt)
-            
-            if x != go_x or y != go_y : 
-                break
+        dirt, go_x, go_y = same_diff_dirt_check(x, go_x, y, go_y, dirt)
 
     else : # 격자를 벗어나는 경우
         return dirt, go_x, go_y 

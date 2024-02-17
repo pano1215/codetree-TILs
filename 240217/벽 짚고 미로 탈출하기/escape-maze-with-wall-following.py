@@ -14,9 +14,19 @@ cur_point = miro[x][y]
 def is_in_range(right_x, right_y) :
     return 0 <= right_x < n and 0 <= right_y < n
 
+# 같은 곳을 반복하는지 체크하는 함수
+def repeat_check(go_x, go_y, dirt) :
+    global visited
+
+    if [go_x, go_y, dirt] in visited :
+        return True
+    
+    visited.append([go_x, go_y, dirt])
+
+
 # 회전을 여러 번 할 경우 - 위치 체크 함수
 def same_diff_dirt_check(x, go_x, y, go_y, dirt) :
-    temp_visited = []
+    #temp_visited = []
     while True :
         if x == go_x and y == go_y : 
             dirt, go_x, go_y = move_and_block_check(x, y, dirt)
@@ -24,10 +34,12 @@ def same_diff_dirt_check(x, go_x, y, go_y, dirt) :
         if x != go_x or y != go_y : 
             return dirt, go_x, go_y
         
-        if [go_x, go_y, dirt] in temp_visited :
+        if repeat_check(go_x, go_y, dirt) :
             return dirt, go_x, go_y
+        #if [go_x, go_y, dirt] in temp_visited :
+        #    return dirt, go_x, go_y
     
-        temp_visited.append([x, y, dirt])
+        #temp_visited.append([go_x, go_y, dirt])
 
 # 이동할 위치에 따라 방향 설정 & 이동
 def move_and_block_check(x, y, dirt) :
@@ -99,11 +111,15 @@ while True :
     if not is_in_range(x, y) :
         break
 
-    if [x, y, dirt] in visited :
+    if repeat_check(go_x, go_y, dirt) :
         cnt = -1
         break
+
+    #if [x, y, dirt] in visited :
+    #    cnt = -1
+    #    break
     
-    visited.append([x, y, dirt])
+    #visited.append([x, y, dirt])
 
 print(cnt)
 #print('dirt, x, y, cnt : ', dirt, x, y, cnt)

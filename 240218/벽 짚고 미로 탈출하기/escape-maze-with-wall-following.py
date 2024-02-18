@@ -20,11 +20,6 @@ def is_in_range(right_x, right_y) :
 def repeat_check(go_x, go_y, dirt) :
     global visited
 
-    # if [go_x, go_y, dirt] in visited :
-    #     return True
-    
-    # visited.append([go_x, go_y, dirt])
-
     if visited[go_x][go_y][dirt] == True: # 이미 방문한 경우
         return True
 

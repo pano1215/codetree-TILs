@@ -12,7 +12,7 @@
 
 |교재|이름|난이도|상태|최근 제출 코드|
 |---|---|:---:|:---:|---|
-|[Intermediate Low / Simulation / 격자 안에서 단일 객체를 이동](https://www.codetree.ai/missions?missionId=2)|[[연습]벽 짚고 미로 탈출하기](https://www.codetree.ai/missions/2/problems/escape-maze-with-wall-following)|![보통][medium]|![Failed][failed]|[링크](https://github.com/pano1215/codetree-TILs/blob/main/240215/%EB%B2%BD%20%EC%A7%9A%EA%B3%A0%20%EB%AF%B8%EB%A1%9C%20%ED%83%88%EC%B6%9C%ED%95%98%EA%B8%B0/escape-maze-with-wall-following.py)|
+|[Intermediate Low / Simulation / 격자 안에서 단일 객체를 이동](https://www.codetree.ai/missions?missionId=2)|[[연습]벽 짚고 미로 탈출하기](https://www.codetree.ai/missions/2/problems/escape-maze-with-wall-following)|![보통][medium]|![Passed][passed]|[링크](https://github.com/pano1215/codetree-TILs/blob/main/240215/%EB%B2%BD%20%EC%A7%9A%EA%B3%A0%20%EB%AF%B8%EB%A1%9C%20%ED%83%88%EC%B6%9C%ED%95%98%EA%B8%B0/escape-maze-with-wall-following.py)|
 
 
 * 획득 경험치: 해설을 보지 않고 푼 문제에 한해 최초 1회 경험치를 획득하실 수 있습니다.

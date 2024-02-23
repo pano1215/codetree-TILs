@@ -19,19 +19,23 @@ def count(test_cases) :
             cnt += 1
     return cnt
 
+# 방문 횟수 체크 
+def visted_num(visited) :
+    for row in range(len(visited)) :
+        for col in range(len(visited[0])) :
+            return visited[row][col] >= 2 : 
+
 # 겹치는 요소들 삭제하기
 def remove(visited, test_cases) :
     for i in range(len(test_cases)) :
-        for row in range(len(visited)) :
-            for col in range(len(visited[0])) :
-                if visited[row][col] >= 2 : 
-                    # test_cases에서 row와 col이 같은 것을 n으로 설정 
-                    x = test_cases[i][0]
-                    y = test_cases[i][1]
+        if visted_num(visited) :
+            # test_cases에서 row와 col이 같은 것을 n으로 설정 
+            x = test_cases[i][0]
+            y = test_cases[i][1]
 
-                    if row == x and col == y :
-                        test_cases[i][0] = n
-                        test_cases[i][1] = n
+            if row == x and col == y :
+                test_cases[i][0] = n
+                test_cases[i][1] = n
     return test_cases
 
 # 격자에서 벗어나는 경우 - 방향을 전환하는 함수

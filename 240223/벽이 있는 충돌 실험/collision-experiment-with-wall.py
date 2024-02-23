@@ -24,6 +24,7 @@ def visted_num(visited) :
     for row in range(len(visited)) :
         for col in range(len(visited[0])) :
             if visited[row][col] >= 2 :
+                print(visited, row, col)
                 return [visited[row][col] >= 2, row, col]
     return [False, row, col]
 

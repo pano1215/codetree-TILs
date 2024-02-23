@@ -40,8 +40,6 @@ def change_dirt(d) :
 def move(i, x, y, d) :
     next_x = x + dx[d]
     next_y = y + dy[d]
-    #if x == 1 and y == 1 :
-    #print(x, y, next_x, next_y, d)
     if is_in_range(next_x, next_y) :
         test_cases[i][0] = next_x
         test_cases[i][1] = next_y
@@ -49,7 +47,6 @@ def move(i, x, y, d) :
 
         return next_x, next_y, d
     else : 
-        #print('격자에서 벗어나는 경우')
         d = change_dirt(d) 
 
         test_cases[i][0] = x
@@ -57,8 +54,6 @@ def move(i, x, y, d) :
         test_cases[i][2] = d
 
         return x, y, d
-    #if x == 1 and y == 1 :
-    #    print(test_cases)
     
 for _ in range(t):
     test_cases = []
@@ -91,16 +86,12 @@ for _ in range(t):
                 continue 
 
             x, y, d = move(i, x, y, d)
-            #print(x, y, d)
             visited[x][y] += 1
-            #print(visited)
 
         for row in range(len(visited)) :
             for col in range(len(visited[0])) :
                 if visited[row][col] >= 2 : 
                     test_cases = remove(visited, test_cases, row, col)
-        #print('visited : ', visited)
-        #print('test_cases : ', test_cases)
     cnt = 0
     result = count(test_cases)
     

@@ -102,7 +102,7 @@ for _ in range(t):
         #print('전 : ', visited)
         test_cases = remove(visited, test_cases)
         #print('visited : ', visited)
-        print('test_cases : ', test_cases)
+        #print('test_cases : ', test_cases)
     cnt = 0
     result = count(test_cases)
     

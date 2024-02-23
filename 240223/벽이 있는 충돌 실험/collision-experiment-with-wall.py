@@ -23,12 +23,21 @@ def count(test_cases) :
 def visted_num(visited) :
     for row in range(len(visited)) :
         for col in range(len(visited[0])) :
-            return visited[row][col] >= 2 : 
+            if visited[row][col] >= 2 :
+                return [visited[row][col] >= 2, row, col]
+    return [False, row, col]
 
 # 겹치는 요소들 삭제하기
 def remove(visited, test_cases) :
     for i in range(len(test_cases)) :
-        if visted_num(visited) :
+        temp = visted_num(visited)
+        #print(temp)
+
+        check = temp[0]
+        row = temp[1]
+        col = temp[2]
+
+        if check :
             # test_cases에서 row와 col이 같은 것을 n으로 설정 
             x = test_cases[i][0]
             y = test_cases[i][1]
@@ -36,6 +45,7 @@ def remove(visited, test_cases) :
             if row == x and col == y :
                 test_cases[i][0] = n
                 test_cases[i][1] = n
+    
     return test_cases
 
 # 격자에서 벗어나는 경우 - 방향을 전환하는 함수
@@ -67,8 +77,6 @@ def move(i, x, y, d) :
     #if x == 1 and y == 1 :
     #    print(test_cases)
     
-    
-
 for _ in range(t):
     test_cases = []
     n, m = map(int, input().split())

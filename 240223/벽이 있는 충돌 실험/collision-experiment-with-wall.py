@@ -85,7 +85,7 @@ for _ in range(t):
         y = int(y) - 1
         test_cases.append([x, y, d])   
 
-    for _ in range(n * 2) : # 격자의 *2만큼 반복하면 무한히 반복되는게 확정되려나  
+    for _ in range(n) : # 격자의 *2만큼 반복하면 무한히 반복되는게 확정되려나  
         visited = [[0 for _ in range(n)] for _ in range(n)] # 방문한 구슬 숫자 기록하기
         for i in range(m) : # 구슬들의 조건을 반복함
             x = test_cases[i][0]

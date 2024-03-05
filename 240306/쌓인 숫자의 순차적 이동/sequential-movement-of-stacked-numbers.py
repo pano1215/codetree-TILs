@@ -1,12 +1,7 @@
 import sys
 
 n, m = tuple(map(int, input().split()))
-
-temp = [list(map(int, input().split())) for _ in range(n)]
-arr = [[[] for _ in range(n)] for _ in range(n)]
-for i in range(n):
-    for j in range(n):
-        arr[i][j].append(temp[i][j])
+arr = [[[int(num)] for num in input().split()] for _ in range(n)]
 
 # arr = [[[7, 1], [], [4]], 
 #  [[2], [3], [8]], 
@@ -22,22 +17,24 @@ def is_in_range(next_row, next_col) :
     return 0 <= next_row < n and 0 <= next_col < n
 
 # 숫자 이동하기
-def move_cur_num(a, b, c, cur_num, max_row, max_col, tar_idx, max_num) :
+def move_cur_num(a, b, c, cur_num, max_row, max_col, tar_idx, max_num, move_num) :
     temp_arr = []
 
-    for e in arr[a][b] :
-        print(a, b, arr[a][b], e, arr[a][b].pop())
-        temp_arr.append(arr[a][b].pop())
+    for e in arr[a][b][ : move_num + 1] :
+        #print(a, b, e)
+        temp_arr.append(e)
+        arr[a][b].remove(e)
 
     for e in arr[max_row][max_col] :
-        temp_arr.append(arr[max_row][max_col].pop())
+        temp_arr.append(e)
         #print('temp_arr : ', temp_arr)
 
     arr[max_row][max_col] = temp_arr
+
     if len(arr[a][b]) == 0 :
         arr[a][b].append(0)
     
-    print(arr)
+    return arr
 
 
 # 8방향 중에서 가장 큰 수가 있는지 체크
@@ -74,40 +71,14 @@ for i in range(len(move_arr)) :
     if move_arr[i] == arr[a][b][c] :
         # 8방향 중에서 제일 큰 숫자의 위치 리턴
         max_row, max_col, tar_idx, max_num = find_the_biggest_num(a, b, c) 
-        move_cur_num(a, b, c, arr[a][b][c], max_row, max_col, tar_idx, max_num)
-        
-# # 현재 숫자를 새로운 곳으로 이동
-# def move_cur_num(row, col, temp) :
-#     next_num = temp[0]
-#     next_row = temp[1]
-#     next_col = temp[2]
+        arr = move_cur_num(a, b, c, arr[a][b][c], max_row, max_col, tar_idx, max_num, move_arr[i])
+#print(arr)
 
-#     now_num = arr[row][col]
-#     arr[row][col] = 0
-#     arr[next_row][next_col] = []
-
-#     arr[next_row][next_col].append(now_num)
-#     arr[next_row][next_col].append(next_num)
-    
-#     print(arr)
-
-# for move_num in move_arr :
-#     for i, e in enumerate(arr) :
-        
-#         try :
-#             row = i
-#             col = e.index(move_num)
-#             # print(i, e.index(move_num), move_num)
-
-#             find_the_biggest_num(row, col)
-#         except:
-#             try : 
-#                 for ii, ee in enumerate(e) :
-#                     row = ii
-#                     col = ee.index(move_num)
-                    
-#                     # if move_num == 7 :
-#                     #     print('move_num : 7 ', ii, ee.index(move_num))        
-#                     find_the_biggest_num(row, col)
-#             except:
-#                 continue
+for e in arr :
+    for ee in e :
+        for eee in ee :
+            if eee == 0 :
+                print('None', end = ' ')
+            else :
+                print(eee, end = ' ')
+        print()

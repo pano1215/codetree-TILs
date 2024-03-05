@@ -20,10 +20,11 @@ def is_in_range(next_row, next_col) :
 def move_cur_num(a, b, c, cur_num, max_row, max_col, tar_idx, max_num, move_num) :
     temp_arr = []
 
-    for e in arr[a][b][ : move_num + 1] :
+    if max_num != 0 :
+        for e in arr[a][b][ : move_num + 1] :
         #print(a, b, e)
-        temp_arr.append(e)
-        arr[a][b].remove(e)
+            temp_arr.append(e)
+            arr[a][b].remove(e)
 
     for e in arr[max_row][max_col] :
         temp_arr.append(e)

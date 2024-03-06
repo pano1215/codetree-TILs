@@ -3,10 +3,6 @@ import sys
 n, m = tuple(map(int, input().split()))
 arr = [[[int(num)] for num in input().split()] for _ in range(n)]
 
-# arr = [[[7, 1], [], [4]], 
-#  [[2], [3], [8]], 
-#  [[9], [6], [5]]]
-
 move_arr = list(map(int, input().split()))
 
 dxs = [-1, -1, 0, 1, 1, 1, 0, -1]
@@ -22,23 +18,18 @@ def move_cur_num(a, b, c, max_row, max_col, max_num, move_num) :
 
     if max_num != 0 :
         for e in arr[a][b][ : arr[a][b].index(move_num) + 1] :
-            # if move_num == 1 :
-            #     print(a, b, e, arr[a][b].index(move_num))
             temp_arr.append(e)
             arr[a][b].remove(e)
 
     for e in arr[max_row][max_col] :
         temp_arr.append(e)
-        #print('temp_arr : ', temp_arr)
 
     arr[max_row][max_col] = temp_arr
 
     if len(arr[a][b]) == 0 :
         arr[a][b].append(0)
 
-    #print(arr)
     return arr
-
 
 # 8방향 중에서 가장 큰 수가 있는지 체크
 def find_the_biggest_num(row, col, point) :
@@ -57,7 +48,6 @@ def find_the_biggest_num(row, col, point) :
                     max_row = next_row
                     max_col = next_col
                     tar_idx = arr[next_row][next_col].index(e)
-    #print(row, col, point, max_num, tar_idx)
     return max_row, max_col, tar_idx, max_num
 
 # 움직일 숫자의 위치 찾기
@@ -66,8 +56,6 @@ def find_point(arr, move_num) :
         for b in range(len(arr[a])) :
             for c in range(len(arr[a][b])) :
                 if arr[a][b][c] == move_num :
-                    # if move_num == 1 :
-                    #     print(a, b, c, move_num, arr)
                     return a, b, c
 
 for i in range(len(move_arr)) :
@@ -76,7 +64,6 @@ for i in range(len(move_arr)) :
         # 8방향 중에서 제일 큰 숫자의 위치 리턴
         max_row, max_col, tar_idx, max_num = find_the_biggest_num(a, b, c) 
         arr = move_cur_num(a, b, c, max_row, max_col, max_num, move_arr[i])
-#print(arr)
 
 for e in arr :
     for ee in e :

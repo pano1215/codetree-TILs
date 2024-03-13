@@ -1,7 +1,7 @@
 # 격자크기 구슬개수 시간
 n, m, t = tuple(map(int, input().split()))
 
-miro = [[[] for _ in range(n)] for _ in range(n)]
+miro = [[[0 for _ in range(5)] for _ in range(n)] for _ in range(n)]
 
 for idx in range(m) :
     r, c, d, w = tuple(map(str, input().split()))
@@ -16,11 +16,11 @@ for idx in range(m) :
     elif d == 'U' :
         d = 3
     
-    miro[r][c].append(r)
-    miro[r][c].append(c)
-    miro[r][c].append(d)
-    miro[r][c].append(w)
-    miro[r][c].append(idx + 1)
+    miro[r][c][0] = r
+    miro[r][c][1] = c
+    miro[r][c][2] = d
+    miro[r][c][3] = w
+    miro[r][c][4] = idx + 1
 
 dxs = [0, 1, 0, -1]
 dys = [1, 0, -1, 0]

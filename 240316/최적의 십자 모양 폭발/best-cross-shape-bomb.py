@@ -10,7 +10,6 @@ dys = [1, 0, -1, 0]
 delete_row_col = []
 cnt = 0 # 쌍의 개수 세기 
 max_num = -sys.maxsize
-max_arr = [] # 쌍이 가장 많은 수의 쌍과 row, col 저장
 
 # 격자 범위 체크 함수
 def is_in_range(next_row, next_col) :
@@ -72,7 +71,6 @@ def move_next_arr(copy_arr) :
 def delete_row_col_finc(delete_row_col) :
     global copy_arr
     copy_arr = [i[:] for i in arr]
-    #print('copy_arr : ', arr)
 
     for i in range(len(delete_row_col)) :
         row = delete_row_col[i][0]
@@ -94,16 +92,13 @@ def create_delete_row_col(row, col) :
             next_row = row + dxs[dirt]
             next_col = col + dys[dirt] 
 
-            # print(dirt, i, next_row, next_col)
             if is_in_range(next_row, next_col) :
-                #if [next_row, next_col] not in delete_row_col
                 delete_row_col.append([next_row, next_col])
             row, col = next_row, next_col
     #print(ori_row, ori_col, delete_row_col)
     return delete_row_col_finc(delete_row_col)   
 
 #배열의 모든 번호를 완전 탐색한다
-## 이 부분하고 아래 [# max_arr에서 max_num(가장 큰 수)가 위치한 인덱스 구하기] 부분을 합칠 수 없을까
 for row in range(n) :
     for col in range(n) :
         #모든 번호가 적힌 숫자대로 폭탄을 터트린다(이때 삭제할 [row, col]만들기)
@@ -112,14 +107,5 @@ for row in range(n) :
         #이 과정을 반복하며 가장 많은 쌍을 만드는 숫자를 고른다 
         if pair_num > max_num :
             max_num = pair_num
-            max_arr.append([max_num, row, col])
-print(max_num)
-max_idx = -1
-# max_arr에서 max_num(가장 큰 수)가 위치한 인덱스 구하기 
-# for row in range(len(max_arr)) :
-#     if max_arr[row][0] > max_num :
-#         max_idx = row
-#         max_num = max_arr[row][0]
 
-# result = arr[max_arr[max_idx][1]][max_arr[max_idx][2]]
-# print(result)
+print(max_num)

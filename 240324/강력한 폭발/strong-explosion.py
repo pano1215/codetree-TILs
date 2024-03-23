@@ -30,9 +30,6 @@ def count_detonate_num(copy_arr) :
             if copy_arr[row][col] == 1 :
                 bomb_cnt += 1
     return bomb_cnt
-    #if bomb_cnt >= max_num :
-    #    max_num = bomb_cnt
-    #print(max_num)
 
 # 격자 범위 체크 함수
 def is_in_range(next_row, next_col) :

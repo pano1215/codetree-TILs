@@ -68,22 +68,21 @@ def find_bomb_point(bomb_arr, bomb_pos) :
 
 # 폭탄 터트리는 조합 만들기 
 def bomb_goes_off(num) :
-    global bomb_cnt, max_num
+    global bomb_cnt
 
     if len(bomb_arr) >= len(bomb_pos) :
         # 이 부분에서 폭탄 터지는 위치 구하기 
         if len(bomb_arr) == len(bomb_pos) :
             bomb_cnt = find_bomb_point(bomb_arr, bomb_pos) # 폭탄 종류와 폭탄 위치 합치기
-            if bomb_cnt >= max_num :
-                max_num = bomb_cnt
-        return 
+            return bomb_cnt
+        return 0
 
+    max_ans = 0
     for i in range(1, 4) : # 1번부터 3번까지의 폭탄을 의미함 
         bomb_arr.append(i)
         #print(bomb_arr)
-        bomb_goes_off(num + 1)
+        max_ans = max(max_ans, bomb_goes_off(num + 1))
         bomb_arr.pop()
+    return max_ans
 
-bomb_goes_off(0)
-
-print(max_num)
+print(bomb_goes_off(0))

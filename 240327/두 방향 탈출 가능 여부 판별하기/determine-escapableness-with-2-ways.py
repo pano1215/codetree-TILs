@@ -8,10 +8,14 @@ def is_in_range(next_x, next_y) :
 
 # 탈출가능한지 확인하기 
 def escape(next_x, next_y) :
-    escape_yes_or_no = 0 # 탈출가능여부
+    global escape_yes_or_no
+
     if next_x == n - 1 and next_y == m - 1 :
         escape_yes_or_no = 1 # 탈출가능
-    return escape_yes_or_no
+
+    if escape_yes_or_no == 1 or escape_yes_or_no == 0 :
+        print(escape_yes_or_no)
+    return
 
 # 이동이 가능한지 확인하는 함수
 def can_go(next_x, next_y) :
@@ -23,12 +27,14 @@ def can_go(next_x, next_y) :
 
     # 2. [next_x][next_y]가 0이고,
     # 3. visted[next_x][next_y]가 True가 아닌 경우
-    if arr[next_x][next_y] != 0 and not visited[next_x][next_y] :
+    if arr[next_x][next_y] != 1 and not visited[next_x][next_y] :
         return False
     
     return True
 
 def dfs(x, y) :
+    global escape_yes_or_no
+
     dxs = [0, 1]
     dys = [1, 0]
 
@@ -46,10 +52,12 @@ def dfs(x, y) :
 
             # 탈출가능한지 확인하기 
             escape_yes_or_no = escape(next_x, next_y)
-            return escape_yes_or_no
 
+            return escape_yes_or_no
+    return escape_yes_or_no
 
 # 세팅
+escape_yes_or_no = 0 # 탈출가능여부
 arr[0][0] = 2 # [0][0]에서 시작하는거 세팅하기
 visited[0][0] = True # visited [0][0] 방문체크
-print(dfs(0, 0))
+escape_yes_or_no = dfs(0, 0)

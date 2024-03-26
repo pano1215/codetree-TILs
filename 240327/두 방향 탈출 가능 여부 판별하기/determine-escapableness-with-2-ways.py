@@ -29,7 +29,6 @@ def can_go(next_x, next_y) :
     # 3. visted[next_x][next_y]가 True가 아닌 경우
     if arr[next_x][next_y] != 1 and not visited[next_x][next_y] :
         return False
-    
     return True
 
 def dfs(x, y) :
@@ -51,10 +50,12 @@ def dfs(x, y) :
             # 탈출가능한지 확인하기 
             escape(next_x, next_y)
 
+def Print():
+    print(escape_yes_or_no)
+
 # 세팅
 escape_yes_or_no = 0 # 탈출가능여부
 arr[0][0] = 2 # [0][0]에서 시작하는거 세팅하기
 visited[0][0] = True # visited [0][0] 방문체크
 dfs(0, 0)
-
-print(escape_yes_or_no)
+Print()

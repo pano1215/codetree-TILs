@@ -33,8 +33,6 @@ def can_go(next_x, next_y) :
     return True
 
 def dfs(x, y) :
-    global escape_yes_or_no
-
     dxs = [0, 1]
     dys = [1, 0]
 

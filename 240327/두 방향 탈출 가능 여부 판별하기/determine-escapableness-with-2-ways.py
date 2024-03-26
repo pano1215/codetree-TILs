@@ -15,6 +15,8 @@ def escape(next_x, next_y) :
 
     if escape_yes_or_no == 1 or escape_yes_or_no == 0 :
         print(escape_yes_or_no)
+    else :
+        print(0)
     return
 
 # 이동이 가능한지 확인하는 함수

@@ -27,7 +27,7 @@ def can_go(next_x, next_y) :
 
     # 2. [next_x][next_y]가 0이나 2가 아니고,
     # 3. visted[next_x][next_y]가 True가 아닌 경우
-    if arr[next_x][next_y] != 1 and visited[next_x][next_y] :
+    if arr[next_x][next_y] != 1 or visited[next_x][next_y] :
         return False
     return True
 

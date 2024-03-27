@@ -9,7 +9,7 @@ def is_in_range(next_x, next_y) :
 # 탈출가능한지 확인하기 
 def escape(next_x, next_y) :
     global escape_yes_or_no
-
+    print('next_x, next_y : ', next_x, next_y)
     if next_x == n - 1 and next_y == m - 1 :
         escape_yes_or_no = 1 # 탈출가능
     
@@ -44,7 +44,7 @@ def dfs(x, y) :
 
         # 이동이 가능한지 확인
         if can_go(next_x, next_y) :
-             
+            
             arr[next_x][next_y] = 2 # 이동가능하다면 [next_row][next_col]를 2로 세팅
             visited[next_x][next_y] = True # 방문한거 체크 
 
@@ -57,6 +57,7 @@ def dfs(x, y) :
 
             dfs(next_x, next_y) # dfs 재호출
         else : 
+            dfs(x, y)
             print(escape_yes_or_no)
             return
 

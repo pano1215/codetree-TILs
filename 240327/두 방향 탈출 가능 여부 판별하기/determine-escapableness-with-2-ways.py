@@ -15,7 +15,7 @@ def escape(next_x, next_y) :
     
     # if escape_yes_or_no == 1 or escape_yes_or_no == 0 :
     #     print(escape_yes_or_no)
-    return escape_yes_or_no
+    # return
 
 # 이동이 가능한지 확인하는 함수
 def can_go(next_x, next_y) :
@@ -32,8 +32,6 @@ def can_go(next_x, next_y) :
     return True
 
 def dfs(x, y) :
-    global escape_yes_or_no
-
     dxs = [0, 1]
     dys = [1, 0]
 
@@ -47,17 +45,17 @@ def dfs(x, y) :
              
             arr[next_x][next_y] = 2 # 이동가능하다면 [next_row][next_col]를 2로 세팅
             visited[next_x][next_y] = True # 방문한거 체크 
+            dfs(next_x, next_y) # dfs 재호출
 
             # 탈출가능한지 확인하기 
-            escape_yes_or_no = escape(next_x, next_y)
-            if escape_yes_or_no == 0 or escape_yes_or_no == 1 :
-                print(escape_yes_or_no)
-                return
+            escape(next_x, next_y)
 
-            dfs(next_x, next_y) # dfs 재호출
+def Print():
+    print(escape_yes_or_no)
 
 # 세팅
 escape_yes_or_no = 0 # 탈출가능여부
 arr[0][0] = 2 # [0][0]에서 시작하는거 세팅하기
 visited[0][0] = True # visited [0][0] 방문체크
 dfs(0, 0)
+Print()

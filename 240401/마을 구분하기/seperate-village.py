@@ -35,9 +35,6 @@ def dfs(x, y) :
 
             if is_in_range(next_x, next_y) :
                 dfs(next_x, next_y)
-        # for문에서 재호출이 안됐다는건 사방에 벽이 있다는 것
-        #section.append(cnt) 
-        #cnt = 0 
     #print(cnt, arr)
 
 cnt = 0 

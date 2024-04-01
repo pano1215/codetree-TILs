@@ -36,15 +36,19 @@ def dfs(x, y) :
             if is_in_range(next_x, next_y) :
                 dfs(next_x, next_y)
         # for문에서 재호출이 안됐다는건 사방에 벽이 있다는 것
-        section.append(cnt) 
-        cnt = 0 
+        #section.append(cnt) 
+        #cnt = 0 
     #print(cnt, arr)
 
 cnt = 0 
 for row in range(n) :
     for col in range(n) :
         if arr[row][col] == 1 :
-            dfs(row, col)
+            a = dfs(row, col)
+            if not a :
+                #print(cnt, a)
+                section.append(cnt) 
+                cnt = 0
 
 for e in range(len(section) * 2) :
     if 0 in section :

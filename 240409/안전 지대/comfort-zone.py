@@ -36,7 +36,7 @@ def dfs(x, y) :
             next_x = x + dx
             next_y = y + dy
 
-            if is_in_range(next_x, next_y) :
+            if is_in_range(next_x, next_y) and village_copy[next_x][next_y] != 0 :
                 dfs(next_x, next_y)
     
     # 다음 위치의 값이 0이 아닌 경우에 이동

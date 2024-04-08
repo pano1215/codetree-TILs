@@ -1,6 +1,6 @@
 import sys
 
-sys.setrecursionlimit(10**6)
+sys.setrecursionlimit(10**5)
 
 # 입력값 받기 
 n, m = map(int, input().split())

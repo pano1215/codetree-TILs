@@ -1,5 +1,7 @@
 import sys
 
+sys.setrecursionlimit(10**6)
+
 # 입력값 받기 
 n, m = map(int, input().split())
 village = [list(map(int, input().split())) for _ in range(n)]

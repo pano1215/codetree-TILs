@@ -20,7 +20,8 @@ def search_target_num(target_num) :
         ## mid와 target_num 비교
         ## mid == t_n인 경우 : mid = idx
         if n_arr[mid] == target_num:
-            idx = mid + 1
+            idx = mid + 1 # 순서는 1부터 시작하기 때문에 +1을 해줘야함
+                          # 반면, -1은 +1되지 않고 그대로 출력되야 하기 때문에 42번 라인이 아닌 idx = mid 세팅 부분에서 +1해야함 
             break
 
         ## mid > target_num인 경우 : mid - 1 = right

@@ -47,6 +47,5 @@ for row in range(n) :
             if cnt >= 4 : # 블록갯수가 4가 넘으면 터지는 것
                 bomb_cnt += 1 # 터지는 블록 카운트
 
-            if cnt > max_cnt :
-                max_cnt = cnt
+            max_cnt = max(max_cnt, cnt)
 print(bomb_cnt, max_cnt)

@@ -19,6 +19,8 @@ def dfs(x, y) :
     # 이미 방문한 곳은 visted에서 True로 처리해서 방문하지 못하도록 함
     visited[x][y] = True
     arr[x][y] = 0
+
+    print(arr)
         
     # 네 방향 중에 전진 가능한 곳을 재호출 
     for dx, dy in zip(dxs, dys) :
@@ -33,6 +35,6 @@ def dfs(x, y) :
 for row in range(n) :
     for col in range(n) : 
         if arr[row][col] != 0 and visited[row][col] == False:
+            temp_num = arr[row][col] # 
             dfs(row, col)
             cnt += 1 # 반환되는 횟수 cnt
-print(cnt)

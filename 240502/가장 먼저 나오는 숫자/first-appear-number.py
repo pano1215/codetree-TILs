@@ -25,7 +25,7 @@ target_arr = list(map(int, input().split()))
 for i in range(m) :
     target_num = target_arr[i]
 
-    if target_num not in arr : # 시간초과에 안 걸리기 위해서, 처음부터 arr에 target_num이 없으면 -1을 출력하고 다음으로 넘어감 
+    if target_num not in arr :
         print(-1)
         continue
 

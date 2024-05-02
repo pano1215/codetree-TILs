@@ -22,11 +22,12 @@ def binary_search(target_num) :
 
 # target_num를 m번 입력받기 
 target_arr = list(map(int, input().split()))
-for i in range(m) : 
+for i in range(m) :
     target_num = target_arr[i]
-    result = binary_search(target_num) # 처음 등장하는 위치를 찾는 이진탐색 함수 호출
 
-    if target_num in arr : 
-        print(result)
-    else :
+    if target_num not in arr :
         print(-1)
+        continue
+
+    result = binary_search(target_num) # 처음 등장하는 위치를 찾는 이진탐색 함수 호출
+    print(result)

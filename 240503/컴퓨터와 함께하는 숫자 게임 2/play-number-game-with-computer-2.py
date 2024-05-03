@@ -1,5 +1,5 @@
 import sys
-sys.setrecursionlimit(10**5)
+sys.setrecursionlimit(10**18)
 
 m = int(input())
 a, b = list(map(int, input().split()))

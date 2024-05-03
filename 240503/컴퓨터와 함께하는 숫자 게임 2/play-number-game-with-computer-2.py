@@ -1,12 +1,12 @@
 import sys
-sys.setrecursionlimit(10**18)
+sys.setrecursionlimit(10**5)
 
 m = int(input())
 a, b = list(map(int, input().split()))
 
 # m과 a~b까지의 범위 배열 만들기 
 m_arr = [num for num in range(1, m + 1)]
-a_b_arr = [num for num in range(a, b + 1)]
+#a_b_arr = [num for num in range(a, b + 1)]
 min_cnt = sys.maxsize # 가장 적게 지속될 때를 구하기 위한 임시 변수
 max_cnt = -sys.maxsize # 가장 오래 지속될 때를 구하기 위한 임시 변수 
 
@@ -35,13 +35,16 @@ def binary_search(target_num) :
 
     return cnt # cnt return 
 
-for i in a_b_arr :
+#for i in a_b_arr :
+while a <= b :
     # target_num 설정하기 
-    target_num = i
+    target_num = a
 
     cnt = binary_search(target_num)
 
     max_cnt = max(max_cnt, cnt)
     min_cnt = min(min_cnt, cnt)
+
+    a += 1
 
 print(min_cnt, max_cnt)

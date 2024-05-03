@@ -1,3 +1,6 @@
+import sys
+sys.setrecursionlimit(10**5)
+
 n, m = map(int, input().split())
 
 # 좌표(target_num)를 입력받음
@@ -85,6 +88,3 @@ for _ in range(m) : # m번 선분의 범위가 주어짐
     else : # 좌표(target_arr)가 범위(spectrum_arr) 안에 없는 경우 
         print(0)
         continue
-
-# 그 범위 안에 tartget_num이 있는지 없는지 체크
-# 있다면 몇 개 있는지 체크

@@ -1,5 +1,5 @@
 import sys
-sys.setrecursionlimit(10**5)
+sys.setrecursionlimit(10**6)
 
 n, m = map(int, input().split())
 
@@ -83,7 +83,7 @@ for _ in range(m) : # m번 선분의 범위가 주어짐
         ## target_arr을 순회하면서 처음 시작 위치 구하기 
         ## target_arr을 순회하면서 처음 끝 위치 구하기 
         ## 갯수 구하기 
-        print(cnt )
+        print(cnt)
         continue
     else : # 좌표(target_arr)가 범위(spectrum_arr) 안에 없는 경우 
         print(0)

@@ -5,7 +5,7 @@ m = int(input())
 a, b = list(map(int, input().split()))
 
 # m과 a~b까지의 범위 배열 만들기 
-m_arr = [num for num in range(1, m + 1)]
+#m_arr = [num for num in range(1, m + 1)]
 #a_b_arr = [num for num in range(a, b + 1)]
 min_cnt = sys.maxsize # 가장 적게 지속될 때를 구하기 위한 임시 변수
 max_cnt = -sys.maxsize # 가장 오래 지속될 때를 구하기 위한 임시 변수 
@@ -13,8 +13,8 @@ max_cnt = -sys.maxsize # 가장 오래 지속될 때를 구하기 위한 임시 
 # 이진탐색 함수 
 def binary_search(target_num) : 
     # left right cnt 설정
-    left = 0
-    right = m - 1
+    left = 1
+    right = m
     cnt = 0 
 
     # left <= right일 때까지 반복함 
@@ -25,10 +25,10 @@ def binary_search(target_num) :
         mid = (left + right) // 2
 
         # 같다면 cnt return 
-        if m_arr[mid] == target_num :
+        if mid == target_num :
             return cnt
 
-        if m_arr[mid] > target_num :
+        if mid > target_num :
             right = mid - 1
         else : 
             left = mid + 1

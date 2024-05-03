@@ -5,7 +5,7 @@ m = int(input())
 a, b = list(map(int, input().split()))
 
 # m과 a~b까지의 범위 배열 만들기 
-#m_arr = [num for num in range(1, m + 1)]
+#m_arr = [num for num in range(1, m + 1)] # 메모리 초과 때문에 배열을 따로 만들지 않음 
 #a_b_arr = [num for num in range(a, b + 1)]
 min_cnt = sys.maxsize # 가장 적게 지속될 때를 구하기 위한 임시 변수
 max_cnt = -sys.maxsize # 가장 오래 지속될 때를 구하기 위한 임시 변수 

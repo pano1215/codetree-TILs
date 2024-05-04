@@ -8,10 +8,8 @@ prefix_sum[0] = arr[0]
 for i in range(1, n) :
     prefix_sum[i] = prefix_sum[i - 1] + arr[i]
 
-#print(prefix_sum)
 max_sum = -sys.maxsize
 for i in range(n - k) :
     sum_sum = prefix_sum[i + k - 1] - prefix_sum[i] + arr[i]
-    #print(prefix_sum[i + k - 1], prefix_sum[i], arr[i], sum_sum)
     max_sum = max(max_sum, sum_sum)
 print(max_sum)

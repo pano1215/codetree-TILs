@@ -1,5 +1,5 @@
 n = int(input())
-memo = [-1] * 1000
+memo = [-1] * 1020
 
 def test(n) :
     memo[0] = 1

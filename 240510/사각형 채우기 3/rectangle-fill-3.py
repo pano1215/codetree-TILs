@@ -2,6 +2,7 @@ n = int(input())
 memo = [-1] * 1000
 
 def test(n) :
+    memo[0] = 1
     memo[1] = 2
     memo[2] = 7
 

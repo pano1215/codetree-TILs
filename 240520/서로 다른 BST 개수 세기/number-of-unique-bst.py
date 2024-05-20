@@ -5,7 +5,7 @@ def test(n) :
     #dp[1] = 1
     #dp[2] = 2
     #dp[2] = 5
-
+    
     if dp[n] != 0 :
         return dp[n]
 
@@ -18,5 +18,4 @@ def test(n) :
     dp[n] = temp
     return dp[n]
 
-test(n)
-print(dp[n])
+print(test(n))

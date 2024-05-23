@@ -1,6 +1,6 @@
 n = int(input())
 line_arr = [list(map(int, input().split())) for _ in range(n)]
-visited = [False for _ in range(10)] # 일단 10으로 해두고 1000으로 바꿔서 제출하기  
+visited = [False for _ in range(1000)] # 일단 10으로 해두고 1000으로 바꿔서 제출하기  
 cnt = 0 # 안 겹치는 선분 수 cnt 
 
 # 겹치는지 확인하는 함수

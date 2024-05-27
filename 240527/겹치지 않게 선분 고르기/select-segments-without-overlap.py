@@ -2,6 +2,7 @@ n = int(input())
 line_arr = [list(map(int, input().split())) for _ in range(n)]
 visited = [False for _ in range(1001)] # 일단 10으로 해두고 1000으로 바꿔서 제출하기  
 cnt = 0 # 안 겹치는 선분 수 cnt 
+ans = 0
 
 # 겹치는지 확인하는 함수
 def overlab(x1, x2) :
@@ -23,12 +24,14 @@ def delete_line(x1, x2) :
     global cnt 
     for i in range(x1, x2 + 1) :
         visited[i] = False
+    #cnt -= 1
     return visited
 
 def select_line(idx) :
     global cnt 
 
     if idx == n :
+        ans = max(ans, cnt)
         return 
         
     #print(visited)
@@ -44,4 +47,4 @@ def select_line(idx) :
         delete_line(x1, x2) 
 
 select_line(0)
-print(cnt)
+print(ans)

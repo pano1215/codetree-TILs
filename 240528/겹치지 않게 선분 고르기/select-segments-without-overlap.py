@@ -42,7 +42,7 @@ def find_max_segments(cnt):
     find_max_segments(cnt + 1)
     selected_segs.pop()
     
-    find_max_segments(cnt + 1)
+    #find_max_segments(cnt + 1)
 
 
 find_max_segments(0)

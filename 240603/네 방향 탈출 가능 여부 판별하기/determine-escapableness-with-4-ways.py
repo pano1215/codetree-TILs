@@ -37,11 +37,11 @@ def bfs() :
                 #if next_x == 98 and next_y == 99 :
                 #print(next_x, next_y)
 
-                if next_x == n - 1 and next_y == m - 1 :
-                    check = 1
-                    return check
-                else : 
-                    check = 0 
+            if next_x == n - 1 and next_y == m - 1 :
+                check = 1
+                return check
+            else : 
+                check = 0 
     return check
 
 # bfs 시작

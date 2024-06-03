@@ -19,8 +19,8 @@ def can_go(x, y) :
 
 # x y를 반복하며 제시하기 (아래, 위, 오른쪽으로만 이동가능)
 def bfs() :
-    dxs = [1, 0, -1]
-    dys = [0, 1, 0]
+    dxs = [1, 0, -1, 0]
+    dys = [0, 1, 0, -1]
 
     while q : # q에 값이 있는 경우 계속 반복함
         x, y = q.popleft()
@@ -33,12 +33,15 @@ def bfs() :
 
                 # q에 이동하는 위치넣기
                 q.append([next_x, next_y])
-            
-            if next_x == n - 1 and next_y == m - 1 :
-                check = 1
-                return check
-            else : 
-                check = 0 
+                
+                #if next_x == 98 and next_y == 99 :
+                #print(next_x, next_y)
+
+                if next_x == n - 1 and next_y == m - 1 :
+                    check = 1
+                    return check
+                else : 
+                    check = 0 
     return check
 
 # bfs 시작

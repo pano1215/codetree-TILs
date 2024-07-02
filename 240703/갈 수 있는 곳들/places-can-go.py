@@ -4,7 +4,7 @@ from collections import deque
 n, k = map(int, input().split())
 miro = [list(map(int, input().split())) for _ in range(n)]
 point = [list(map(int, input().split())) for _ in range(k)]
-cnt = 1
+cnt = 0
 
 # 방문 배열 생성
 visited = [[False for _ in range(n)] for _ in range(n)]
@@ -42,16 +42,18 @@ def bfs() :
                 visited[next_x][next_y] = True
                 q.append((next_x, next_y))
                 cnt += 1
+                #print(next_x, next_y)
     return cnt
 
 # bfs 시작
 for spot in point :
-    r, c = spot[0] - 1, spot[1] - 1
+    cnt  += 1
+    r, c =spot[0] - 1, spot[1] - 1
     q.append((r, c))
     visited[r][c] = True
     result = bfs()
-print(result)
+    #print(visited)
+    # 방문 배열 원복
+    visited = [[False for _ in range(n)] for _ in range(n)]
 
-#    if result > 0 :
-#        cnt += 1
-#print(cnt)
+print(result)

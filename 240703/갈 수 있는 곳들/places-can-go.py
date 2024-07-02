@@ -47,13 +47,13 @@ def bfs() :
 
 # bfs 시작
 for spot in point :
-    cnt  += 1
+    cnt += 1
     r, c =spot[0] - 1, spot[1] - 1
     q.append((r, c))
     visited[r][c] = True
     result = bfs()
     #print(visited)
     # 방문 배열 원복
-    visited = [[False for _ in range(n)] for _ in range(n)]
+    #visited = [[False for _ in range(n)] for _ in range(n)]
 
 print(result)

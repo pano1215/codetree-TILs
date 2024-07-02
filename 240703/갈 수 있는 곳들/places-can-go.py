@@ -46,7 +46,7 @@ def bfs() :
 
 # bfs 시작
 for spot in point :
-    r, c = spot[0], spot[1]
+    r, c = spot[0] - 1, spot[1] - 1
     q.append((r, c))
     visited[r][c] = True
     result = bfs()

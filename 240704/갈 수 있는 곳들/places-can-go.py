@@ -40,10 +40,12 @@ def can_go(next_x, next_y) :
 def bfs() :
     dxs = [1, 0, -1, 0]
     dys = [0, 1, 0, -1]
+
+    global cnt
     
     while q : # q에 값이 있는 경우 계속 반복함 
         x, y = q.popleft()
-
+        cnt += 1
         for dx, dy in zip(dxs, dys) : 
             next_x, next_y = x + dx, y + dy
 
@@ -57,7 +59,7 @@ for spot in point :
     r, c =spot[0] - 1, spot[1] - 1
     q.append((r, c))
     visited[r][c] = True
-    bfs()
+    result = bfs()
 
-result = check_visited(visited)
+#result = check_visited(visited)
 print(result)

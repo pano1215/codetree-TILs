@@ -22,7 +22,7 @@ visited = [[False for _ in range(n)] for _ in range(n)]
 
 # in_range : 격자 범위 내에 있는지 체크
 def in_range(new_x, new_y) :
-    return 0 < new_x < n and 0 < new_y < n
+    return 0 <= new_x < n and 0 <= new_y < n
 
 # can_go 이동할 수 있는 경우 : 격자 범위 안에 있는 경우, 방문한 적이 없는 경우, 현재 숫자보다 작은 경우
 def can_go(new_x, new_y, target_num) :
@@ -50,6 +50,7 @@ def bfs() :
 
     # target_num : 현재 위치의 숫자 
     target_num = grid[curr_x][curr_y]
+    #print('curr_x, curr_y : ', curr_x, curr_y, '| bfs_q : ', bfs_q, '| target_num : ', target_num)
 
     # BFS 탐색을 수행합니다.
     # 큐에 값이 없을 때까지 반복 
@@ -75,7 +76,7 @@ def bfs() :
 def need_update(best_pos, new_pos) : 
     # 첫 도달 가능한 위치라면
     # update가 필요합니다.
-    print('best_pos == NOT_EXISTS', best_pos, NOT_EXISTS, best_pos == NOT_EXISTS)
+    #print('best_pos == NOT_EXISTS', best_pos, NOT_EXISTS, best_pos == NOT_EXISTS)
     if best_pos == NOT_EXISTS : 
         return True 
 
@@ -128,10 +129,10 @@ def move() :
         return True 
 
 # k번에 걸쳐 움직이는 것을 반복합니다.
-for _ in range(k) : 
+for i in range(k) : 
     # 움직여야 하는지 판단
     is_moved = move()
-
+    
     # 움직이지 못했다면 바로 종료합니다.
     if not is_moved :
         break 

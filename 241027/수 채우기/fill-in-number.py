@@ -1,16 +1,15 @@
 n = int(input())
 
-coin = [5, 2]
-coin_cnt = 0
-
-while n % 5 != 0 and n > 0 :
+cnt = 0
+while n % 5 != 0 and n > 1 :# 5의 배수가 되도록 만들기 위함
     n -= 2
-    coin_cnt += 1
+    cnt += 1
+    #print('n :', n)
 
-# 5의 배수가 됐다는 것
-coin_cnt = coin_cnt + (n // 5)
+cnt += (n // 5)
+n = n % 5
 
-if n < 0 :
+if n != 0 :
     print(-1)
-else : 
-    print(coin_cnt)
+else :
+    print(cnt)

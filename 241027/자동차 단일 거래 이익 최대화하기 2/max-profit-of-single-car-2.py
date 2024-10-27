@@ -1,16 +1,21 @@
 n = int(input())
 car_price = list(map(int, input().split()))
 
-# 오른쪽에서부터 최대값을 기록하는 배열을 생성합니다.
-max_future_price = [0] * n
-max_future_price[-1] = car_price[-1]
+price_diff = [0] * n
+price_diff[-1] = car_price[-1]
+for i in range(n - 2, -1, -1) :
+    if len(price_diff) == 0 :
+        price_diff[i] = car_price[i]
+    else : 
+        if price_diff[i + 1] >= car_price[i] :
+            price_diff[i] = price_diff[i + 1]
+        else :
+            price_diff[i] = car_price[i]
+#print(price_diff)
 
-# 역순으로 최대값을 저장합니다.
-for i in range(n - 2, -1, -1):
-    max_future_price[i] = max(car_price[i], max_future_price[i + 1])
-
-max_price = 0 
+diff = []
 for i in range(n) :
-    max_price = max(max_price, max_future_price[i] - car_price[i])
+    diff_price = price_diff[i] - car_price[i]
+    diff.append(diff_price)
 
-print(max_price)
+print(max(diff))

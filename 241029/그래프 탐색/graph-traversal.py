@@ -21,7 +21,6 @@ def dfs(curr) :
     for col in range(len(arr[curr])) :
         if arr[curr][col] == 1 and not visited[col] :
             visited[col] = True
-            print(curr, col, visited)
             cnt += 1
             dfs(col)
 

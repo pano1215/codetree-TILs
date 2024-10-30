@@ -12,7 +12,7 @@ def can_do(next_x, next_y) :
     return is_range(next_x, next_y) and not visited[next_x][next_y] and miro[next_x][next_y] == 1
 
 def escape_yes_no(miro) :
-    if miro[n - 1][n - 1] == -1 :
+    if miro[n - 1][m - 1] == -1 :
         return True
     else :
         return False 

@@ -13,4 +13,4 @@ for row in range(1, n) :
     for col in range(n - 2, -1, -1) :
         sum_arr[row][col] = min(arr[row][col] + sum_arr[row - 1][col], arr[row][col] + sum_arr[row][col + 1])
 
-print(min(sum_arr[-1]))
+print(sum_arr[-1][0])

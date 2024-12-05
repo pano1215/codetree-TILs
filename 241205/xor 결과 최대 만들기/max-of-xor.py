@@ -17,12 +17,13 @@ def xor() :
 
 def start(num) :
     if len(temp) == m :
+        print(temp)
         xor()
         return 
     
     for i in range(num, n) :
         temp.append(exp[i])
-        start(num + 1)
+        start(i + 1)
         temp.pop()
 
 start(0)

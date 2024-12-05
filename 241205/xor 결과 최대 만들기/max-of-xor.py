@@ -17,7 +17,7 @@ def xor() :
 
 def start(num) :
     if len(temp) == m :
-        print(temp)
+        #print(temp)
         xor()
         return 
     

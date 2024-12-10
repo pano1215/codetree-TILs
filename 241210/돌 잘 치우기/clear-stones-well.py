@@ -25,7 +25,7 @@ def find_max(cnt) :
 def is_range(x, y) :
     return 0 <= x < n and 0 <= y < n
     
-# 이동가능한 경우란 : visited False, 뱀이 없는 곳(1인 지역)
+# 이동가능한 경우란 : visited False, 돌이 없는 곳(0인 지역)
 def can_go(x, y) :
     global temp_miro, visited, cnt
 
@@ -52,8 +52,9 @@ def bfs() :
                 visited[next_x][next_y] = True
                 cnt += 1
                 # q에 이동하는 위치넣기
-                q.append([next_x, next_y])
-    #print('visited : ', visited, cnt)
+                q.append((next_x, next_y))
+
+            #print('visited : ', visited, cnt)
     
     # 호출 : 가장 큰 방문 수 구하는 함수 
     find_max(cnt)
@@ -65,25 +66,31 @@ def delete_stone(stone_com) :
     # temp_miro 초기화하기 
     temp_miro = [row[:] for row in miro]
 
-    # visited 초기화하기
-    visited = [[False for _ in range(n)] for _ in range(n)]
-
     # cnt 초기화하기
-    cnt = 1
+    cnt = 0
+
+    # visited 초기화하기
+    #visited = [[False for _ in range(n)] for _ in range(n)]
 
     for row, col in stone_com :
         temp_miro[row][col] = 0
     
     #if stone_com[0] == (2, 3) and stone_com[1] == (3, 1) :
-        #print('temp_miro : ', temp_miro)
+    #print('temp_miro : ', temp_miro)
 
     # 돌아가며 시작점마다 bfs 돌리기 
     for row, col in start_points : 
         #print('start_points : ', start_points, row, col)
         q.append((row, col))
-        visited[row][col] = True
-        # 호출 : bfs 
+
+        if not visited[row][col] : 
+            visited[row][col] = True
+            cnt += 1
+        # 호출 : bfs
         bfs()
+
+    # visited 초기화하기
+    visited = [[False for _ in range(n)] for _ in range(n)]
 
 # 치우는 돌의 조합 만드는 함수
 stone_com = []

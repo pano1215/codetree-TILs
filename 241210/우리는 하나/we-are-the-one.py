@@ -26,8 +26,10 @@ def bfs(select_city) :
         for dx, dy in zip(dxs, dys) :
             nx, ny = x + dx, y + dy
             
-            if 0 <= nx < n and 0 <= ny < n and can_go(arr[x][y], arr[nx][ny]) :
+            if 0 <= nx < n and 0 <= ny < n and can_go(arr[x][y], arr[nx][ny]) and not visited[nx][ny]:
+                visited[nx][ny] = True
                 count += 1
+                q.append((nx, ny))
 
     return count
 

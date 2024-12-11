@@ -24,4 +24,4 @@ def min_jump(n, arr) :
             #print(visited, q)
     return -1
 
-print('result : ', min_jump(n, arr))
+print(min_jump(n, arr))

@@ -22,7 +22,7 @@ def min_jump(n, arr) :
                 visited[i] = True
                 q.append((i, jump_count + 1))
             
-            print(visited, q)
+           # print(visited, q)
     return -1
 
 print(min_jump(n, arr))

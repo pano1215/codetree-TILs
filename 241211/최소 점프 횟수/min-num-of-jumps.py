@@ -14,7 +14,7 @@ def min_jump(n, arr) :
 
         for i in range(position + 1, position + arr[position] + 1) :
             #print('i, arr[i], arr[position], jump_count : ', i, arr[i], arr[position], jump_count)
-            print(position + 1, position + arr[position] + 1)
+            #print(position + 1, position + arr[position] + 1)
             if i == n - 1 :
                 return jump_count + 1 
 

@@ -19,5 +19,7 @@ def find_min(n, arr) :
 
             visited[i] = True
             q.append((i, jump_cnt + 1))
+            
+    return -1
 
 print(find_min(n, arr))

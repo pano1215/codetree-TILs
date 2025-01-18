@@ -12,7 +12,7 @@ ans = 0
 
 
 def in_range(nx, ny) : 
-    return 0 <= nx < n and 0 <= ny < n 
+    return 0 <= nx < n and 0 <= ny < m 
 
 def bfs() :
     global ans 

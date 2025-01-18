@@ -6,7 +6,7 @@ a = [list(map(int, input().split())) for _ in range(n)]
 q = deque()
 
 visited = [[False for _ in range(n)] for _ in range(m)] 
-step = [[0 for _ in range(n)] for _ in range(n)]
+step = [[0 for _ in range(n)] for _ in range(m)]
 
 ans = 0
 

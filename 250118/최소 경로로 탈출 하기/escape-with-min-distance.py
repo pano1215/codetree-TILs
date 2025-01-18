@@ -38,7 +38,7 @@ def push(x, y, s) :
 push(0, 0, 0)
 bfs()
 
-if step[-1][-1] : 
-    print(0)
+if step[-1][-1] == 0 : 
+    print(-1)
 else : 
     print(step[-1][-1])

@@ -5,11 +5,10 @@ a = [list(map(int, input().split())) for _ in range(n)]
 
 q = deque()
 
-visited = [[False for _ in range(n)] for _ in range(m)] 
-step = [[0 for _ in range(n)] for _ in range(m)]
+visited = [[False for _ in range(m)] for _ in range(n)] 
+step = [[0 for _ in range(m)] for _ in range(n)]
 
 ans = 0
-
 
 def in_range(nx, ny) : 
     return 0 <= nx < n and 0 <= ny < m 

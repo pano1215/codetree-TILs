@@ -13,7 +13,8 @@ for i in range(n) :
 
         #print(i_str_day, j_end_day)
         if j_end_day < i_str_day :
-            dp[i] = max(dp[i], dp[j] + jobs[j][2])
+            #print(dp[i], dp[j], j, jobs[j][2])
+            dp[i] = max(dp[i], dp[j] + jobs[i][2])
             #print(dp)
 
 print(max(dp))

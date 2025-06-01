@@ -12,8 +12,9 @@ for i in range(n) :
         j_str_time = jobs[j][1]
 
         if i_str_time > j_str_time :
-            dp[i] = max(dp[i], dp[j] + jobs[j][2])
+            dp[i] = max(dp[i], dp[j] + jobs[i][2])
 
-print(max(dp))
+print(dp)
+#print(max(dp))
 
         

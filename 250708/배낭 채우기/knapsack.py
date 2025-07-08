@@ -5,7 +5,6 @@ w, v = list(w), list(v)
 # print(n, m, w, v)
 
 dp = [0 for _ in range(m + 1)]
-dp[0] = 0
 
 for i in range(n) : # 가방
     for j in range(m, w[i] -1, -1) : # 무게

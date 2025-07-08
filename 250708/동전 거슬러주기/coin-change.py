@@ -1,24 +1,22 @@
 import sys
 
-n, m = map(int, input().split())
-coin = list(map(int, input().split()))
-coin.insert(0, 0)
-max_val = -sys.maxsize 
+n, m = map(int, input().split()) # 동전수, 금액 
+coin = [0] + list(map(int, input().split()))
+
+min_num = sys.maxsize
+
 dp = [0] * (m + 1)
+for i in range(len(dp)) : 
+    dp[i] = min_num
+dp[0] = 0 
 
-for i in range(m + 1) : 
-    dp[i] = max_val
-dp[0] = 0
-
-for i in range(1, m + 1) :
-    for j in range(1, n + 1) : 
-        if i >= coin[j] :
-            if dp[i - coin[j]] == max_val :
-                continue
-
+for i in range(1, m + 1) : # 금액 
+    for j in range(1, n + 1) : # 동전수 
+        if i >= coin[j] : 
             dp[i] = min(dp[i], dp[i - coin[j]] + 1)
-#print(dp)
-if dp[m] == max_val :
+
+if dp[m] == min_num :
     print(-1)
 else : 
     print(dp[m])
+

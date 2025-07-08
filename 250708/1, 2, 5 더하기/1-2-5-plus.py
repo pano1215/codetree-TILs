@@ -12,4 +12,4 @@ for i in range(n + 1) :
 if dp[n] == 0 :
     print(-1)
 else : 
-    print(dp[n])
+    print(dp[n] % 10007)

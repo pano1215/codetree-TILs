@@ -11,5 +11,5 @@ for i in range(1, n + 1) :
 
 result = 0
 for i in range(n + 1) : 
-    result = max(dp[i])
+    result = max(result, max(dp[i]))
 print(result)

@@ -1,30 +1,22 @@
 n, k = map(int, input().split())
-numbers = [0] + list(map(int, input().split()))
+numbers = list(map(int, input().split()))
 
-dp = [[0 for _ in range(n + 1)] for _ in range(n + 1)]
+max_sum = float('-inf')
+current_sum = 0
+minus_count = 0
+left = 0
 
-for i in range(1, n + 1) : 
-    dp[i][i] = numbers[i]
+for right in range(n):
+    current_sum += numbers[right]
+    if numbers[right] < 0:
+        minus_count += 1
 
+    while minus_count > k:
+        if numbers[left] < 0:
+            minus_count -= 1
+        current_sum -= numbers[left]
+        left += 1
 
-for i in range(1, n + 1) : 
-    minus_cnt = 0 
-    for j in range(i, n + 1) : 
-        if numbers[j] < 0 : 
-            minus_cnt += 1
+    max_sum = max(max_sum, current_sum)
 
-        if minus_cnt > k :
-            break
-        
-        dp[i][j] = dp[i][j - 1] + numbers[j]
-
-result = 0 
-for i in range(n + 1) :
-    result = max(result, max(dp[i]))
-print(result)
-        
-        
-
-
-
-        
+print(max_sum)
